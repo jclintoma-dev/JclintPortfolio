@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>John Clint D. Omangayon — Personnel File</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f6f4ef;
+    --paper-alt:#efece4;
+    --ink:#1c1f22;
+    --navy:#26364a;
+    --seal:#9c3b2e;
+    --hairline:#d9d5c9;
+    --muted:#6b6f76;
+    --serif:'Newsreader', Georgia, serif;
+    --mono:'IBM Plex Mono', 'Courier New', monospace;
+    --sans:'IBM Plex Sans', Arial, sans-serif;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{ color:inherit; }
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--seal);
+    outline-offset:3px;
+  }
+
+  @media (prefers-reduced-motion: no-preference){
+    .reveal{
+      animation:fadeUp .7s ease both;
+    }
+    @keyframes fadeUp{
+      from{ opacity:0; transform:translateY(10px); }
+      to{ opacity:1; transform:translateY(0); }
+    }
+  }
+
+  .sheet{
+    max-width:920px;
+    margin:0 auto;
+    padding:0 28px 100px;
+  }
+
+  /* ---------- Folder tab ---------- */
+  .tab{
+    max-width:920px;
+    margin:0 auto;
+    padding:14px 28px 0;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .tab-label{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:.12em;
+    color:var(--muted);
+    background:var(--paper-alt);
+    border:1px solid var(--hairline);
+    border-bottom:none;
+    padding:7px 14px 6px;
+    border-radius:5px 5px 0 0;
+  }
+
+  /* ---------- Header ---------- */
+  header.file-header{
+    border:1px solid var(--hairline);
+    background:var(--paper-alt);
+    border-radius:0 5px 5px 5px;
+    padding:38px 34px 30px;
+    position:relative;
+    overflow:hidden;
+  }
+
+  .file-header .field-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:24px;
+    flex-wrap:wrap;
+  }
+
+  .id-block{ flex:1; min-width:240px; }
+
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--seal);
+    margin:0 0 10px;
+  }
+
+  h1{
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:clamp(2.1rem, 5vw, 3.1rem);
+    margin:0 0 6px;
+    letter-spacing:-.01em;
+    color:var(--navy);
+  }
+
+  .role-line{
+    font-family:var(--serif);
+    font-style:italic;
+    font-size:1.15rem;
+    color:var(--ink);
+    margin:0 0 20px;
+  }
+
+  .meta-grid{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    row-gap:4px;
+    column-gap:14px;
+    font-family:var(--mono);
+    font-size:13px;
+    color:var(--muted);
+    max-width:420px;
+  }
+  .meta-grid dt{ color:var(--muted); }
+  .meta-grid dd{ margin:0; color:var(--ink); }
+
+  .portrait-wrap{
+    position:relative;
+    width:140px;
+    flex-shrink:0;
+  }
+  .portrait-frame{
+    width:140px;
+    height:140px;
+    border:1px solid var(--hairline);
+    background:var(--paper);
+    padding:6px;
+    border-radius:2px;
+  }
+  .portrait-frame img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    filter:grayscale(28%) contrast(1.03);
+    border-radius:1px;
+  }
+
+  .stamp{
+    position:absolute;
+    top:-14px;
+    right:-18px;
+    width:92px;
+    height:92px;
+    border:2.5px solid var(--seal);
+    border-radius:50%;
+    color:var(--seal);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    transform:rotate(-14deg);
+    font-family:var(--mono);
+    font-size:9.5px;
+    letter-spacing:.08em;
+    line-height:1.35;
+    text-transform:uppercase;
+    mix-blend-mode:multiply;
+    opacity:.9;
+    padding:6px;
+  }
+  .stamp::before{
+    content:"";
+    position:absolute;
+    inset:6px;
+    border:1px solid var(--seal);
+    border-radius:50%;
+  }
+
+  /* ---------- Sections ---------- */
+  main{ margin-top:6px; }
+
+  section.record{
+    border-left:1px solid var(--hairline);
+    border-right:1px solid var(--hairline);
+    border-bottom:1px solid var(--hairline);
+    padding:30px 34px 34px;
+    background:var(--paper);
+  }
+  section.record:last-of-type{ border-radius:0 0 5px 5px; }
+
+  .sec-head{
+    display:flex;
+    align-items:baseline;
+    gap:12px;
+    margin-bottom:20px;
+  }
+  .sec-index{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--seal);
+    letter-spacing:.06em;
+  }
+  .sec-title{
+    font-family:var(--serif);
+    font-size:1.5rem;
+    font-weight:600;
+    color:var(--navy);
+    margin:0;
+  }
+  .sec-head::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:var(--hairline);
+    align-self:center;
+  }
+
+  p.lede{
+    font-size:1.02rem;
+    color:#33383e;
+    max-width:66ch;
+  }
+
+  /* entries */
+  .entry{
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:6px 20px;
+    padding:16px 0;
+    border-top:1px solid var(--hairline);
+  }
+  .entry:first-of-type{ border-top:none; padding-top:0; }
+
+  .entry-title{
+    font-weight:600;
+    font-size:1.02rem;
+    margin:0;
+  }
+  .entry-sub{
+    grid-column:1;
+    color:var(--muted);
+    font-size:.94rem;
+    margin:2px 0 0;
+  }
+  .entry-when{
+    grid-column:2;
+    text-align:right;
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--muted);
+    white-space:nowrap;
+    padding-top:2px;
+  }
+  .entry-where{
+    grid-column:2;
+    text-align:right;
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--muted);
+    opacity:.8;
+  }
+  .entry-bullets{
+    grid-column:1 / -1;
+    margin:12px 0 0;
+    padding-left:20px;
+    color:#33383e;
+    font-size:.96rem;
+  }
+  .entry-bullets li{ margin-bottom:6px; }
+  .entry-bullets li::marker{ color:var(--seal); }
+
+  /* skills ledger */
+  .ledger{
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0 28px;
+  }
+  .ledger li{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 0;
+    border-top:1px solid var(--hairline);
+    font-size:.95rem;
+  }
+  .ledger li:nth-child(-n+2){ border-top:none; }
+  .check{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--seal);
+    border:1px solid var(--seal);
+    border-radius:3px;
+    padding:1px 5px;
+    flex-shrink:0;
+  }
+
+  /* certifications */
+  .seals{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+    gap:14px;
+  }
+  .seal-card{
+    border:1px dashed var(--hairline);
+    border-radius:6px;
+    padding:16px 16px 14px;
+    position:relative;
+  }
+  .seal-card .seal-tag{
+    font-family:var(--mono);
+    font-size:10.5px;
+    letter-spacing:.1em;
+    color:var(--seal);
+    text-transform:uppercase;
+    display:block;
+    margin-bottom:6px;
+  }
+  .seal-card h3{
+    margin:0 0 4px;
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:1.05rem;
+  }
+  .seal-card p{
+    margin:0;
+    color:var(--muted);
+    font-size:.88rem;
+  }
+
+  /* contact / socials */
+  .channels{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(240px,1fr));
+    gap:12px;
+  }
+  .channel{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    border:1px solid var(--hairline);
+    border-radius:6px;
+    padding:14px 16px;
+    text-decoration:none;
+    background:var(--paper-alt);
+    transition:border-color .15s ease, transform .15s ease;
+  }
+  .channel:hover, .channel:focus-visible{
+    border-color:var(--seal);
+    transform:translateY(-1px);
+  }
+  .channel .c-left{ display:flex; align-items:center; gap:12px; }
+  .channel .glyph{
+    width:34px; height:34px;
+    border-radius:50%;
+    background:var(--navy);
+    color:var(--paper);
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--mono);
+    font-size:12px;
+    flex-shrink:0;
+  }
+  .channel .c-name{
+    display:block;
+    font-weight:600;
+    font-size:.94rem;
+  }
+  .channel .c-handle{
+    display:block;
+    font-family:var(--mono);
+    font-size:11.5px;
+    color:var(--muted);
+    margin-top:1px;
+  }
+  .channel .arrow{
+    font-family:var(--mono);
+    color:var(--muted);
+    font-size:14px;
+  }
+
+  footer{
+    max-width:920px;
+    margin:0 auto;
+    padding:26px 34px 10px;
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--muted);
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+
+  @media (max-width:640px){
+    .sheet{ padding:0 16px 70px; }
+    .tab{ padding:12px 16px 0; }
+    header.file-header{ padding:30px 20px 26px; }
+    section.record{ padding:26px 20px 28px; }
+    .portrait-wrap{ width:110px; }
+    .portrait-frame{ width:110px; height:110px; }
+    .stamp{ width:78px; height:78px; font-size:8.5px; top:-10px; right:-10px; }
+    .ledger{ grid-template-columns:1fr; }
+    .ledger li:nth-child(2){ border-top:1px solid var(--hairline); }
+    .entry{ grid-template-columns:1fr; }
+    .entry-when, .entry-where{ grid-column:1; text-align:left; }
+    footer{ flex-direction:column; padding:22px 20px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="tab"><span class="tab-label">PERSONNEL&nbsp;FILE</span></div>
+
+<div class="sheet">
+  <header class="file-header reveal">
+    <div class="field-row">
+      <div class="id-block">
+        <p class="eyebrow">Ref. No. JCO-2026 · Status: Active</p>
+        <h1>John Clint D. Omangayon</h1>
+        <p class="role-line">Criminology Graduate — Compliance &amp; Investigations</p>
+        <dl class="meta-grid">
+          <dt>Email</dt><dd>jclintoma@gmail.com</dd>
+          <dt>Phone</dt><dd>0939&nbsp;795&nbsp;2995</dd>
+          <dt>Based</dt><dd>Sta. Maria, Bulacan, PH</dd>
+        </dl>
+      </div>
+      <div class="portrait-wrap">
+        <div class="portrait-frame">
+          <img src="assets/photo.jpg" alt="Portrait of John Clint D. Omangayon">
+        </div>
+        <div class="stamp">Records<br>Verified</div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="record reveal">
+      <div class="sec-head"><span class="sec-index">01</span><h2 class="sec-title">Profile</h2></div>
+      <p class="lede">Recent Bachelor of Science in Criminology graduate with practical experience gained through on-the-job training at the Bureau of Jail Management and Penology. Skilled in documentation, record management, report preparation, and administrative support. Possesses foundational knowledge in AML, KYC, fraud detection, and cybersecurity. Seeking to contribute to compliance, fraud prevention, or security operations while continuously developing professional expertise.</p>
+    </section>
+
+    <section class="record reveal">
+      <div class="sec-head"><span class="sec-index">02</span><h2 class="sec-title">Education</h2></div>
+
+      <div class="entry">
+        <p class="entry-title">Immaculate Conception I‑College of Arts and Technology</p>
+        <span class="entry-when">Sept 2022 – May 2026</span>
+        <p class="entry-sub">Bachelor of Science in Criminology</p>
+        <span class="entry-where">Sta. Maria, Bulacan</span>
+      </div>
+
+      <div class="entry">
+        <p class="entry-title">Dr. Yanga's Colleges Inc.</p>
+        <span class="entry-when">Aug 2020 – May 2022</span>
+        <p class="entry-sub">Humanities and Social Science</p>
+        <span class="entry-where">Bocaue, Bulacan</span>
+      </div>
+    </section>
+
+    <section class="record reveal">
+      <div class="sec-head"><span class="sec-index">03</span><h2 class="sec-title">Work Experience</h2></div>
+
+      <div class="entry">
+        <p class="entry-title">Bureau of Jail Management and Penology — Intern</p>
+        <span class="entry-when">Dec 2025 – May 2026</span>
+        <p class="entry-sub">On‑the‑Job Training (OJT)</p>
+        <span class="entry-where">Sta. Maria, Bulacan</span>
+        <ul class="entry-bullets">
+          <li>Assisted in managing and maintaining inmate and office records, ensuring accurate documentation and proper file organization.</li>
+          <li>Prepared and reviewed reports, correspondence, and other administrative documents to support daily operations.</li>
+          <li>Performed data entry and records management tasks while maintaining a high level of accuracy and attention to detail.</li>
+          <li>Observed security procedures and operational protocols, gaining practical exposure to correctional facility management.</li>
+          <li>Provided administrative support to personnel and contributed to the efficient execution of office functions.</li>
+          <li>Demonstrated professionalism, confidentiality, and strong organizational skills while handling sensitive information.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="record reveal">
+      <div class="sec-head"><span class="sec-index">04</span><h2 class="sec-title">Skills</h2></div>
+      <ul class="ledger">
+        <li><span class="check">✓</span>Microsoft Office (Word, Excel, PowerPoint)</li>
+        <li><span class="check">✓</span>AML &amp; KYC Fundamentals</li>
+        <li><span class="check">✓</span>Fraud Detection and Prevention</li>
+        <li><span class="check">✓</span>Transaction Monitoring</li>
+        <li><span class="check">✓</span>Investigation and Report Writing</li>
+        <li><span class="check">✓</span>Cybersecurity Awareness</li>
+        <li><span class="check">✓</span>Attention to Detail</li>
+      </ul>
+    </section>
+
+    <section class="record reveal">
+      <div class="sec-head"><span class="sec-index">05</span><h2 class="sec-title">Certifications</h2></div>
+      <div class="seals">
+        <div class="seal-card">
+          <span class="seal-tag">Certificate</span>
+          <h3>AML Fundamentals</h3>
+          <p>World AML Academy</p>
+        </div>
+        <div class="seal-card">
+          <span class="seal-tag">Certificate</span>
+          <h3>Introduction to Cybersecurity</h3>
+          <p>Cisco Networking Academy</p>
+        </div>
+        <div class="seal-card">
+          <span class="seal-tag">Certificate</span>
+          <h3>Financial Investigation Basics</h3>
+          <p>Basel LEARN</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="record reveal">
+      <div class="sec-head"><span class="sec-index">06</span><h2 class="sec-title">Contact &amp; Channels</h2></div>
+      <div class="channels">
+        <a class="channel" href="mailto:jclintoma@gmail.com">
+          <span class="c-left"><span class="glyph">@</span><span><span class="c-name">Email</span><span class="c-handle">jclintoma@gmail.com</span></span></span>
+          <span class="arrow">→</span>
+        </a>
+        <a class="channel" href="tel:+639397952995">
+          <span class="c-left"><span class="glyph">☎</span><span><span class="c-name">Phone</span><span class="c-handle">0939 795 2995</span></span></span>
+          <span class="arrow">→</span>
+        </a>
+        <a class="channel" href="https://www.linkedin.com/in/john-clint-omangayon-336143417/" target="_blank" rel="noopener">
+          <span class="c-left"><span class="glyph">in</span><span><span class="c-name">LinkedIn</span><span class="c-handle">john-clint-omangayon</span></span></span>
+          <span class="arrow">→</span>
+        </a>
+        <a class="channel" href="https://ph.jobstreet.com/profiles/xnr3P4Qmh7" target="_blank" rel="noopener">
+          <span class="c-left"><span class="glyph">JS</span><span><span class="c-name">Jobstreet</span><span class="c-handle">View profile</span></span></span>
+          <span class="arrow">→</span>
+        </a>
+        <a class="channel" href="https://www.facebook.com/Jclintttt" target="_blank" rel="noopener">
+          <span class="c-left"><span class="glyph">f</span><span><span class="c-name">Facebook</span><span class="c-handle">@Jclintttt</span></span></span>
+          <span class="arrow">→</span>
+        </a>
+        <a class="channel" href="https://www.instagram.com/j_clinttt/" target="_blank" rel="noopener">
+          <span class="c-left"><span class="glyph">IG</span><span><span class="c-name">Instagram</span><span class="c-handle">@j_clinttt</span></span></span>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>John Clint D. Omangayon — Personnel File</span>
+    <span>Last updated 2026</span>
+  </footer>
+</div>
+
+</body>
+</html>

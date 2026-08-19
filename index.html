@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>John Clint D. Omangayon — Personnel File</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f6f4ef;
+    --paper-alt:#efece4;
+    --ink:#1c1f22;
+    --navy:#26364a;
+    --seal:#9c3b2e;
+    --hairline:#d9d5c9;
+    --muted:#6b6f76;
+    --serif:'Newsreader', Georgia, serif;
+    --mono:'IBM Plex Mono', 'Courier New', monospace;
+    --sans:'IBM Plex Sans', Arial, sans-serif;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{ color:inherit; }
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--seal);
+    outline-offset:3px;
+  }
+
+  @media (prefers-reduced-motion: no-preference){
+    .reveal{
+      animation:fadeUp .7s ease both;
+    }
+    @keyframes fadeUp{
+      from{ opacity:0; transform:translateY(10px); }
+      to{ opacity:1; transform:translateY(0); }
+    }
+  }
+
+  .sheet{
+    max-width:920px;
+    margin:0 auto;
+    padding:0 28px 100px;
+  }
+
+  /* ---------- Folder tab ---------- */
+  .tab{
+    max-width:920px;
+    margin:0 auto;
+    padding:14px 28px 0;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .tab-label{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:.12em;
+    color:var(--muted);
+    background:var(--paper-alt);
+    border:1px solid var(--hairline);
+    border-bottom:none;
+    padding:7px 14px 6px;
+    border-radius:5px 5px 0 0;
+  }
+
+  /* ---------- Header ---------- */
+  header.file-header{
+    border:1px solid var(--hairline);
+    background:var(--paper-alt);
+    border-radius:0 5px 5px 5px;
+    padding:38px 34px 30px;
+    position:relative;
+    overflow:hidden;
+  }
+
+  .file-header .field-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:24px;
+    flex-wrap:wrap;
+  }
+
+  .id-block{ flex:1; min-width:240px; }
+
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--seal);
+    margin:0 0 10px;
+  }
+
+  h1{
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:clamp(2.1rem, 5vw, 3.1rem);
+    margin:0 0 6px;
+    letter-spacing:-.01em;
+    color:var(--navy);
+  }
+
+  .role-line{
+    font-family:var(--serif);
+    font-style:italic;
+    font-size:1.15rem;
+    color:var(--ink);
+    margin:0 0 20px;
+  }
+
+  .meta-grid{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    row-gap:4px;
+    column-gap:14px;
+    font-family:var(--mono);
+    font-size:13px;
+    color:var(--muted);
+    max-width:420px;
+  }
+  .meta-grid dt{ color:var(--muted); }
+  .meta-grid dd{ margin:0; color:var(--ink); }
+
+  .portrait-wrap{
+    position:relative;
+    width:140px;
+    flex-shrink:0;
+  }
+  .portrait-frame{
+    width:140px;
+    height:140px;
+    border:1px solid var(--hairline);
+    background:var(--paper);
+    padding:6px;
+    border-radius:2px;
+  }
+  .portrait-frame img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    filter:grayscale(28%) contrast(1.03);
+    border-radius:1px;
+  }
+
+  .stamp{
+    position:absolute;
+    top:-14px;
+    right:-18px;
+    width:92px;
+    height:92px;
+    border:2.5px solid var(--seal);
+    border-radius:50%;
+    color:var(--seal);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    transform:rotate(-14deg);
+    font-family:var(--mono);
+    font-size:9.5px;
+    letter-spacing:.08em;
+    line-height:1.35;
+    text-transform:uppercase;
+    mix-blend-mode:multiply;
+    opacity:.9;
+    padding:6px;
+  }
+  .stamp::before{
+    content:"";
+    position:absolute;
+    inset:6px;
+    border:1px solid var(--seal);
+    border-radius:50%;
+  }
+
+  /* ---------- Sections ---------- */
+  main{ margin-top:6px; }
+
+  section.record{
+    border-left:1px solid var(--hairline);
+    border-right:1px solid var(--hairline);
+    border-bottom:1px solid var(--hairline);
+    padding:30px 34px 34px;
+    background:var(--paper);
+  }
+  section.record:last-of-type{ border-radius:0 0 5px 5px; }
+
+  .sec-head{
+    display:flex;
+    align-items:baseline;
+    gap:12px;
+    margin-bottom:20px;
+  }
+  .sec-index{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--seal);
+    letter-spacing:.06em;
+  }
+  .sec-title{
+    font-family:var(--serif);
+    font-size:1.5rem;
+    font-weight:600;
+    color:var(--navy);
+    margin:0;
+  }
+  .sec-head::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:var(--hairline);
+    align-self:center;
+  }
+
+  p.lede{
+    font-size:1.02rem;
+    color:#33383e;
+    max-width:66ch;
+    margin:0 0 16px;
+  }
+  p.lede:last-child{ margin-bottom:0; }
+
+  /* entries */
+  .entry{
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:6px 20px;
+    padding:16px 0;
+    border-top:1px solid var(--hairline);
+  }
+  .entry:first-of-type{ border-top:none; padding-top:0; }
+
+  .entry-title{
+    font-weight:600;
+    font-size:1.02rem;
+    margin:0;
+  }
+  .entry-sub{
+    grid-column:1;
+    color:var(--muted);
+    font-size:.94rem;
+    margin:2px 0 0;
+  }
+  .entry-when{
+    grid-column:2;
+    text-align:right;
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--muted);
+    white-space:nowrap;
+    padding-top:2px;
+  }
+  .entry-where{
+    grid-column:2;
+    text-align:right;
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--muted);
+    opacity:.8;
+  }
+  .entry-bullets{
+    grid-column:1 / -1;
+    margin:12px 0 0;
+    padding-left:20px;
+    color:#33383e;
+    font-size:.96rem;
+  }
+  .entry-bullets li{ margin-bottom:6px; }
+  .entry-bullets li::marker{ color:var(--seal); }
+
+  /* skills ledger */
+  .ledger{
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0 28px;
+  }
+  .ledger li{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 0;
+    border-top:1px solid var(--hairline);
+    font-size:.95rem;
+  }
+  .ledger li:nth-child(-n+2){ border-top:none; }
+  .check{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--seal);
+    border:1px solid var(--seal);
+    border-radius:3px;
+    padding:1px 5px;
+    flex-shrink:0;
+  }
+
+  /* certifications */
+  .seals{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+    gap:14px;
+  }
+  .seal-card{
+    border:1px dashed var(--hairline);
+    border-radius:6px;
+    padding:16px 16px 14px;
+    position:relative;
+  }
+  .seal-card .seal-tag{
+    font-family:var(--mono);
+    font-size:10.5px;
+    letter-spacing:.1em;
+    color:var(--seal);
+    text-transform:uppercase;
+    display:block;
+    margin-bottom:6px;
+  }
+  .seal-card h3{
+    margin:0 0 4px;
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:1.05rem;
+  }
+  .seal-card p{
+    margin:0;
+    color:var(--muted);
+    font-size:.88rem;
+  }
+  .seal-link{
+    display:inline-block;
+    font-family:var(--mono);
+    font-size:11.5px;
+    letter-spacing:.03em;
+    color:var(--navy);
+    text-decoration:none;
+    border-bottom:1px solid var(--hairline);
+    padding-bottom:1px;
+  }
+  .seal-link:hover, .seal-link:focus-visible{
+    color:var(--seal);
+    border-bottom-color:var(--seal);
+  }
+  .seal-actions{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-top:12px;
+    flex-wrap:wrap;
+  }
+  .seal-view{
+    font-family:var(--mono);
+    font-size:11.5px;
+    letter-spacing:.03em;
+    color:var(--paper);
+    background:var(--navy);
+    border:1px solid var(--navy);
+    border-radius:4px;
+    padding:6px 11px;
+    cursor:pointer;
+    transition:background .15s ease, color .15s ease;
+  }
+  .seal-view:hover, .seal-view:focus-visible{
+    background:var(--seal);
+    border-color:var(--seal);
+  }
+
+  /* certificate lightbox */
+  .lightbox{
+    position:fixed; inset:0; z-index:80;
+    background:rgba(20,18,14,.82);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:36px 20px;
+  }
+  .lightbox.open{ display:flex; }
+  .lightbox-inner{
+    max-width:min(900px, 100%);
+    max-height:100%;
+    background:var(--paper);
+    border-radius:6px;
+    padding:14px 14px 16px;
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .lightbox-inner img{
+    max-width:100%;
+    max-height:74vh;
+    object-fit:contain;
+    display:block;
+    border:1px solid var(--hairline);
+    border-radius:3px;
+    margin:0 auto;
+  }
+  .lightbox-caption{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--muted);
+    text-align:center;
+  }
+  .lightbox-close{
+    position:absolute;
+    top:-14px; right:-14px;
+    width:34px; height:34px;
+    border-radius:50%;
+    background:var(--navy);
+    color:var(--paper);
+    border:2px solid var(--paper);
+    font-size:16px;
+    line-height:1;
+    cursor:pointer;
+  }
+  .lightbox-close:hover{ background:var(--seal); }
+
+  /* contact / socials */
+  .channels{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(240px,1fr));
+    gap:12px;
+  }
+  .channel{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    border:1px solid var(--hairline);
+    border-radius:6px;
+    padding:14px 16px;
+    text-decoration:none;
+    background:var(--paper-alt);
+    transition:border-color .15s ease, transform .15s ease;
+  }
+  .channel:hover, .channel:focus-visible{
+    border-color:var(--seal);
+    transform:translateY(-1px);
+  }
+  .channel .c-left{ display:flex; align-items:center; gap:12px; }
+  .channel .glyph{
+    width:34px; height:34px;
+    border-radius:50%;
+    background:var(--navy);
+    color:var(--paper);
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--mono);
+    font-size:12px;
+    flex-shrink:0;
+  }
+  .channel .c-name{
+    display:block;
+    font-weight:600;
+    font-size:.94rem;
+  }
+  .channel .c-handle{
+    display:block;
+    font-family:var(--mono);
+    font-size:11.5px;
+    color:var(--muted);
+    margin-top:1px;
+  }
+  .channel .arrow{
+    font-family:var(--mono);
+    color:var(--muted);
+    font-size:14px;
+  }
+
+  footer{
+    max-width:920px;
+    margin:0 auto;
+    padding:26px 34px 10px;
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--muted);
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+
+  @media (max-width:640px){
+    .sheet{ padding:0 16px 70px; }
+    .tab{ padding:12px 16px 0; }
+    header.file-header{ padding:30px 20px 26px; }
+    section.record{ padding:26px 20px 28px; }
+    .portrait-wrap{ width:110px; }
+    .portrait-frame{ width:110px; height:110px; }
+    .stamp{ width:78px; height:78px; font-size:8.5px; top:-10px; right:-10px; }
+    .ledger{ grid-template-columns:1fr; }
+    .ledger li:nth-child(2){ border-top:1px solid var(--hairline); }
+    .entry{ grid-template-columns:1fr; }
+    .entry-when, .entry-where{ grid-column:1; text-align:left; }
+    footer{ flex-direction:column; padding:22px 20px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="tab"><span class="tab-label">PERSONNEL&nbsp;FILE</span></div>
+
+<div class="sheet">
+  <header class="file-header reveal">
+    <div class="field-row">
+      <div class="id-block">
+        <p class="eyebrow">Ref. No. JCO-2026 · Status: Active</p>
+        <h1>John Clint D. Omangayon</h1>
+        <p class="role-line">Criminology Graduate — Compliance &amp; Investigations</p>
+        <dl class="meta-grid">
+          <dt>Email</dt><dd>jclintoma@gmail.com</dd>
+          <dt>Phone</dt><dd>0939&nbsp;795&nbsp;2995</dd>
+          <dt>Based</dt><dd>Bocaue, Bulacan, PH</dd>
+        </dl>
+      </div>
+      <div class="portrait-wrap">
+        <div class="portrait-frame">
+          <img src="assets/photo.jpg" alt="Portrait of John Clint D. Omangayon">
+        </div>
+        <div class="stamp">Records<br>Verified</div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="record reveal">
+      <div class="sec-head"><span class="sec-index">01</span><h2 class="sec-title">About Me</h2></div>
+      <p class="lede">I am a Bachelor of Science in Criminology graduate with a strong interest in Fraud Prevention, Anti-Money Laundering (AML), Know Your Customer (KYC), Compliance, Security, and Risk Analysis. My academic background in criminology has developed my interest in investigation, identifying risks, understanding suspicious behavior, analyzing information, and applying established procedures to help prevent and address security-related threats.</p>
+      <p class="lede">My interest in fraud and financial crime comes from my desire to understand how fraudulent activities, suspicious transactions, identity-related risks, and other forms of financial misconduct can be identified and prevented. I am particularly interested in roles that involve investigating unusual activity, conducting reviews, monitoring transactions, assessing risk, performing due diligence, and supporting compliance with internal policies and regulatory requirements.</p>
+      <p class="lede">During my on-the-job training with the Bureau of Jail Management and Penology (BJMP), I gained practical experience working in a structured and security-focused environment. My responsibilities included maintaining records, preparing and reviewing reports and administrative documents, performing data entry, supporting daily operations, and observing security procedures and operational protocols. This experience strengthened my attention to detail, organizational skills, professionalism, and understanding of the importance of confidentiality when handling sensitive information.</p>
+      <p class="lede">I have also taken the initiative to build knowledge beyond my academic background by developing foundational skills in AML, KYC, fraud detection and prevention, transaction monitoring, cybersecurity awareness, financial investigation, and Open-Source Intelligence (OSINT). I have complemented these areas with technical skills in Microsoft Excel, Microsoft Office, basic SQL, and data handling, which I believe are valuable for analyzing information, identifying patterns, documenting findings, and supporting investigation and risk-related processes.</p>
+      <p class="lede">What interests me most about this career path is the combination of investigation, analysis, technology, and risk management. I enjoy working with information, looking for inconsistencies or unusual patterns, understanding the circumstances behind potential risks, and determining what information may require further review. I am also interested in how organizations use AML/KYC controls, fraud prevention measures, security procedures, and risk-based approaches to protect customers, financial institutions, businesses, and their operations.</p>
+      <p class="lede">As a fresh graduate, I understand that I am still at the beginning of my professional career. Rather than presenting myself as an experienced specialist, I aim to demonstrate my willingness to learn, my investigative mindset, and my commitment to continuously developing the knowledge and technical skills required in the industry. I am actively expanding my understanding of financial crime, fraud typologies, AML/KYC processes, transaction monitoring, compliance, cybersecurity, and risk management.</p>
+      <p class="lede">I am particularly interested in opportunities where I can contribute to Fraud Prevention, AML/KYC, Compliance, Security Operations, Financial Crime, Risk Analysis, or Investigation. My goal is to build a long-term career where I can combine my criminology background with analytical and financial crime prevention skills, while contributing to organizations that value security, integrity, accuracy, and responsible risk management.</p>
+      <p class="lede">I believe that my combination of investigative thinking, attention to detail, security-oriented training, documentation experience, and growing knowledge of financial crime and compliance provides a strong foundation for beginning my career in this field. I am eager to learn from experienced professionals, take on new challenges, and continuously develop into a reliable and analytical professional in the areas of fraud, AML/KYC, compliance, security, and risk.</p>
+    </section>
+
+    <section class="record reveal">
+      <div class="sec-head"><span class="sec-index">02</span><h2 class="sec-title">Education</h2></div>
+
+      <div class="entry">
+        <p class="entry-title">Immaculate Conception I‑College of Arts and Technology</p>
+        <span class="entry-when">Sept 2022 – May 2026</span>
+        <p class="entry-sub">Bachelor of Science in Criminology</p>
+        <span class="entry-where">Sta. Maria, Bulacan</span>
+      </div>
+
+      <div class="entry">
+        <p class="entry-title">Dr. Yanga's Colleges Inc.</p>
+        <span class="entry-when">Aug 2020 – May 2022</span>
+        <p class="entry-sub">Humanities and Social Science</p>
+        <span class="entry-where">Bocaue, Bulacan</span>
+      </div>
+    </section>
+
+    <section class="record reveal">
+      <div class="sec-head"><span class="sec-index">03</span><h2 class="sec-title">Work Experience</h2></div>
+
+      <div class="entry">
+        <p class="entry-title">Bureau of Jail Management and Penology — Intern</p>
+        <span class="entry-when">Dec 2025 – May 2026</span>
+        <p class="entry-sub">On‑the‑Job Training (OJT)</p>
+        <span class="entry-where">Sta. Maria, Bulacan</span>
+        <ul class="entry-bullets">
+          <li>Assisted in managing and maintaining inmate and office records, ensuring accurate documentation and proper file organization.</li>
+          <li>Prepared and reviewed reports, correspondence, and other administrative documents to support daily operations.</li>
+          <li>Performed data entry and records management tasks while maintaining a high level of accuracy and attention to detail.</li>
+          <li>Observed security procedures and operational protocols, gaining practical exposure to correctional facility management.</li>
+          <li>Provided administrative support to personnel and contributed to the efficient execution of office functions.</li>
+          <li>Demonstrated professionalism, confidentiality, and strong organizational skills while handling sensitive information.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="record reveal">
+      <div class="sec-head"><span class="sec-index">04</span><h2 class="sec-title">Skills</h2></div>
+      <ul class="ledger">
+        <li><span class="check">✓</span>Microsoft Office (Word, Excel, PowerPoint)</li>
+        <li><span class="check">✓</span>AML &amp; KYC Fundamentals</li>
+        <li><span class="check">✓</span>Fraud Detection and Prevention</li>
+        <li><span class="check">✓</span>Transaction Monitoring</li>
+        <li><span class="check">✓</span>Investigation and Report Writing</li>
+        <li><span class="check">✓</span>Cybersecurity Awareness</li>
+        <li><span class="check">✓</span>Attention to Detail</li>
+        <li><span class="check">✓</span>OSINT (Open-Source Intelligence)</li>
+        <li><span class="check">✓</span>Basic SQL</li>
+      </ul>
+    </section>
+
+    <section class="record reveal">
+      <div class="sec-head"><span class="sec-index">05</span><h2 class="sec-title">Certifications</h2></div>
+      <div class="seals">
+        <div class="seal-card">
+          <span class="seal-tag">Certificate</span>
+          <h3>AML Fundamentals</h3>
+          <p>World AML Academy</p>
+          <div class="seal-actions">
+            <button type="button" class="seal-view" onclick="openCert('assets/certs/aml-fundamentals.jpg','AML Fundamentals — World AML Academy')">View certificate</button>
+            <a class="seal-link" href="https://www.worldaml.com/academy" target="_blank" rel="noopener">Verify →</a>
+          </div>
+        </div>
+        <div class="seal-card">
+          <span class="seal-tag">Certificate</span>
+          <h3>Introduction to Cybersecurity</h3>
+          <p>Cisco Networking Academy</p>
+          <div class="seal-actions">
+            <button type="button" class="seal-view" onclick="openCert('assets/certs/cybersecurity.jpg','Introduction to Cybersecurity — Cisco Networking Academy')">View certificate</button>
+            <a class="seal-link" href="https://www.credly.com/badges/57e23cfc-3a5f-46d0-99ff-12935e5c9347" target="_blank" rel="noopener">Verify →</a>
+          </div>
+        </div>
+        <div class="seal-card">
+          <span class="seal-tag">Certificate</span>
+          <h3>Financial Investigation Basics</h3>
+          <p>Basel LEARN</p>
+        </div>
+        <div class="seal-card">
+          <span class="seal-tag">Certificate</span>
+          <h3>Open-source Intelligence</h3>
+          <p>Basel Institute on Governance</p>
+          <div class="seal-actions">
+            <button type="button" class="seal-view" onclick="openCert('assets/certs/osint.jpg','Open-source Intelligence — Basel Institute on Governance')">View certificate</button>
+            <a class="seal-link" href="https://learn.baselgovernance.org/mod/customcert/verify_certificate.php?code=vhRNwWClSY&qrcode=1" target="_blank" rel="noopener">Verify →</a>
+          </div>
+        </div>
+        <div class="seal-card">
+          <span class="seal-tag">Certificate</span>
+          <h3>Operational Analysis of Suspicious Transaction Reports</h3>
+          <p>International Centre for Asset Recovery</p>
+          <div class="seal-actions">
+            <button type="button" class="seal-view" onclick="openCert('assets/certs/str-analysis.jpg','Operational Analysis of Suspicious Transaction Reports — International Centre for Asset Recovery')">View certificate</button>
+            <a class="seal-link" href="https://learn.baselgovernance.org/mod/customcert/verify_certificate.php?code=7iHjB56NL9&qrcode=1" target="_blank" rel="noopener">Verify →</a>
+          </div>
+        </div>
+        <div class="seal-card">
+          <span class="seal-tag">Certificate</span>
+          <h3>Foundation in AML and KYC</h3>
+          <p>KYC Lookup</p>
+          <div class="seal-actions">
+            <button type="button" class="seal-view" onclick="openCert('assets/certs/aml-kyc-foundation.jpg','Foundation in AML and KYC — KYC Lookup')">View certificate</button>
+            <a class="seal-link" href="https://thecpdregister.com/providers/cpd-group-providers--782462" target="_blank" rel="noopener">Verify →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="record reveal">
+      <div class="sec-head"><span class="sec-index">06</span><h2 class="sec-title">Contact &amp; Channels</h2></div>
+      <div class="channels">
+        <a class="channel" href="mailto:jclintoma@gmail.com">
+          <span class="c-left"><span class="glyph">@</span><span><span class="c-name">Email</span><span class="c-handle">jclintoma@gmail.com</span></span></span>
+          <span class="arrow">→</span>
+        </a>
+        <a class="channel" href="tel:+639397952995">
+          <span class="c-left"><span class="glyph">☎</span><span><span class="c-name">Phone</span><span class="c-handle">0939 795 2995</span></span></span>
+          <span class="arrow">→</span>
+        </a>
+        <a class="channel" href="https://www.linkedin.com/in/john-clint-omangayon-336143417/" target="_blank" rel="noopener">
+          <span class="c-left"><span class="glyph">in</span><span><span class="c-name">LinkedIn</span><span class="c-handle">john-clint-omangayon</span></span></span>
+          <span class="arrow">→</span>
+        </a>
+        <a class="channel" href="https://ph.jobstreet.com/profiles/xnr3P4Qmh7" target="_blank" rel="noopener">
+          <span class="c-left"><span class="glyph">JS</span><span><span class="c-name">Jobstreet</span><span class="c-handle">View profile</span></span></span>
+          <span class="arrow">→</span>
+        </a>
+        <a class="channel" href="https://www.facebook.com/Jclintttt" target="_blank" rel="noopener">
+          <span class="c-left"><span class="glyph">f</span><span><span class="c-name">Facebook</span><span class="c-handle">@Jclintttt</span></span></span>
+          <span class="arrow">→</span>
+        </a>
+        <a class="channel" href="https://www.instagram.com/j_clinttt/" target="_blank" rel="noopener">
+          <span class="c-left"><span class="glyph">IG</span><span><span class="c-name">Instagram</span><span class="c-handle">@j_clinttt</span></span></span>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>John Clint D. Omangayon — Personnel File</span>
+    <span>Last updated 2026</span>
+  </footer>
+</div>
+
+<div class="lightbox" id="certLightbox" role="dialog" aria-modal="true" aria-label="Certificate viewer" onclick="if(event.target===this) closeCert()">
+  <div class="lightbox-inner">
+    <button type="button" class="lightbox-close" onclick="closeCert()" aria-label="Close">✕</button>
+    <img id="certLightboxImg" src="" alt="">
+    <p class="lightbox-caption" id="certLightboxCaption"></p>
+  </div>
+</div>
+
+<script>
+  function openCert(src, caption){
+    document.getElementById('certLightboxImg').src = src;
+    document.getElementById('certLightboxImg').alt = caption;
+    document.getElementById('certLightboxCaption').textContent = caption;
+    document.getElementById('certLightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeCert(){
+    document.getElementById('certLightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') closeCert();
+  });
+</script>
+
+</body>
+</html>
